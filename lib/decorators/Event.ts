@@ -1,10 +1,9 @@
 import { ClientEvents } from 'discord.js';
 import { EventDecorator } from '../types/Event';
-import { PluginInterface } from '../types/Plugin';
 
 export function Event(options?: EventDecorator) {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: keyof ClientEvents,
     descriptor: PropertyDescriptor
   ): PropertyDescriptor {
@@ -21,7 +20,7 @@ export function Event(options?: EventDecorator) {
 
 Event.once = () => {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ) {

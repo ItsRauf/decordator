@@ -1,12 +1,11 @@
 import { CommandDecoratorOptions } from '../types/Command';
 import { DecoratorClient } from '../Client';
 import { Message } from 'discord.js';
-import { PluginInterface } from '../types/Plugin';
 import ms from 'ms';
 
 export function Command(opts?: CommandDecoratorOptions) {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ): PropertyDescriptor {
@@ -30,7 +29,7 @@ export function Command(opts?: CommandDecoratorOptions) {
 
 Command.alias = (...aliases: string[]) => {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ) {
@@ -48,7 +47,7 @@ Command.alias = (...aliases: string[]) => {
 
 Command.cooldown = (time: string) => {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ) {
@@ -59,7 +58,7 @@ Command.cooldown = (time: string) => {
 
 Command.guildOnly = (val: boolean) => {
   return function (
-    target: PluginInterface,
+    target: unknown,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ) {

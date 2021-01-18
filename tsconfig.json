@@ -17,7 +17,8 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2018",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
   },
   "include": ["lib/**/*.ts", "typings/**/*.ts"],
   "exclude": ["node_modules", "build"]
