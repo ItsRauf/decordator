@@ -5,8 +5,9 @@
     "loose": true,
     "parser": {
       "syntax": "typescript",
-      "dynamicImport": false,
-      "tsx": false
+      "dynamicImport": true,
+      "tsx": false,
+      "decorators": true
     },
     "transform": {
       "legacyDecorator": true,

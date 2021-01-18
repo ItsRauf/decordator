@@ -16,7 +16,8 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2018"
+    "target": "es2018",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["lib/**/*.ts", "typings/**/*.ts"],
   "exclude": ["node_modules", "build"]
