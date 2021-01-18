@@ -19,4 +19,14 @@ export class DecoratorClient extends Client {
     this.pluginPath = join(process.cwd(), opts.pluginPath);
     this.prefix = opts.prefix;
   }
+
+  _registerPlugin(plugin: PluginInterface): void {
+    this.plugins.set(plugin.name, plugin);
+    const events = Array.from(plugin.events.values());
+    events.forEach(event => {
+      if (typeof event.options.once !== 'undefined')
+        this.once(event.name, event.func);
+      else this.on(event.name, event.func);
+    });
+  }
 }
